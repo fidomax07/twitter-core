@@ -22,6 +22,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property-read int|null $followers_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $following
  * @property-read int|null $following_count
+ * @property-read mixed $avatar_url
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Like[] $likes
  * @property-read int|null $likes_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
@@ -85,6 +86,14 @@ class User extends Authenticatable
 	public function avatar()
 	{
 		return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?d=mp';
+	}
+
+	/**
+	 * Get the user's avatar url.
+	 */
+	public function getAvatarUrlAttribute()
+	{
+		return $this->avatar();
 	}
 
 	/**

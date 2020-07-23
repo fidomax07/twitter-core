@@ -15,20 +15,24 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <meta name="auth-user" content="{{ json_encode(optional(auth()->user())->only(['id', 'avatar_url'])) }}">
+
     <script>
-        window.User = {
-            id: {{ optional(auth()->user())->id }},
-            avatar: '{{ optional(auth()->user())->avatar() }}',
-        }
+		(function fetchAuthUser() {
+			var {id = null, avatar_url: avatar = null} = JSON.parse(
+				document.getElementsByTagName('meta').namedItem('auth-user').content
+			) ?? {}
+			window.User = {id, avatar}
+		}())
     </script>
 </head>
 <body>
-    <div id="app">
-        <main class="container mx-auto">
-            @yield('content')
+<div id="app">
+    <main class="container mx-auto">
+        @yield('content')
 
-            <modals-container />
-        </main>
-    </div>
+        {{--<modals-container/>--}}
+    </main>
+</div>
 </body>
 </html>

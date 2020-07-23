@@ -2863,6 +2863,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _compose_AppTweetCompose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../compose/AppTweetCompose */ "./resources/js/components/compose/AppTweetCompose.vue");
+/* harmony import */ var _tweets_AppTweet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../tweets/AppTweet */ "./resources/js/components/tweets/AppTweet.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2887,14 +2889,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AppTimeline',
+  components: {
+    AppTweetCompose: _compose_AppTweetCompose__WEBPACK_IMPORTED_MODULE_1__["default"],
+    AppTweet: _tweets_AppTweet__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
   data: function data() {
     return {
       page: 1,
@@ -3476,6 +3479,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AppTweetUsername__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppTweetUsername */ "./resources/js/components/tweets/AppTweetUsername.vue");
 //
 //
 //
@@ -3507,7 +3511,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'AppTweetVariantTweet',
+  components: {
+    AppTweetUsername: _AppTweetUsername__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   props: {
     tweet: {
       required: true,
@@ -51132,11 +51151,8 @@ var render = function() {
               {
                 name: "observe-visibility",
                 rawName: "v-observe-visibility",
-                value: {
-                  callback: _vm.handleScrolledToBottomOfTimeline
-                },
-                expression:
-                  "{\n      callback: handleScrolledToBottomOfTimeline\n    }"
+                value: { callback: _vm.handleScrolledToBottomOfTimeline },
+                expression: "{callback: handleScrolledToBottomOfTimeline}"
               }
             ]
           })
@@ -51765,7 +51781,7 @@ var render = function() {
   return _c("div", { staticClass: "flex w-full" }, [
     _c("img", {
       staticClass: "w-12 h-12 mr-3 rounded-full",
-      attrs: { src: _vm.tweet.user.avatar }
+      attrs: { src: _vm.tweet.user.avatar, alt: "User's avatar" }
     }),
     _vm._v(" "),
     _c(

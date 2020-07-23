@@ -8,7 +8,7 @@ use App\Tweets\Entities\EntityExtractor;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * Class Tweet
+ * App\Tweet
  *
  * @property int $id
  * @property int $user_id
