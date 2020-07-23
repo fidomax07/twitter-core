@@ -15,7 +15,7 @@ class CreateEntitiesTable extends Migration
     {
         Schema::create('entities', function (Blueprint $table) {
             $table->id();
-            $table->integer('tweet_id')->unsigned()->index();
+            $table->bigInteger('tweet_id')->unsigned()->index();
             $table->text('body');
             $table->text('body_plain');
             $table->string('type');

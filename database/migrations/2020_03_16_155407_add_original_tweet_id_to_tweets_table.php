@@ -14,7 +14,7 @@ class AddOriginalTweetIdToTweetsTable extends Migration
     public function up()
     {
         Schema::table('tweets', function (Blueprint $table) {
-            $table->integer('original_tweet_id')->unsigned()->index()->nullable();
+            $table->bigInteger('original_tweet_id')->unsigned()->index()->nullable();
             $table->foreign('original_tweet_id')->references('id')->on('tweets')->onDelete('cascade');
         });
     }

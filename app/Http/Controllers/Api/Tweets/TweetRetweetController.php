@@ -14,7 +14,7 @@ class TweetRetweetController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth:airlock']);
+        $this->middleware(['auth:sanctum']);
     }
     
     public function store(Tweet $tweet, Request $request)
