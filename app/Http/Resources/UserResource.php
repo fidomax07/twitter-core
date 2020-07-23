@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource
@@ -14,7 +15,8 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+	    /** @var User $this */
+	    return [
             'username' => $this->username,
             'name' => $this->name,
             'avatar' => $this->avatar(),
