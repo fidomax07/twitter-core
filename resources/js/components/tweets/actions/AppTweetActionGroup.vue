@@ -19,12 +19,21 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      tweet: {
-        required: true,
-        type: Object
-      }
+import AppTweetReplyAction from './AppTweetReplyAction'
+import AppTweetRetweetAction from './AppTweetRetweetAction'
+import AppTweetLikeAction from './AppTweetLikeAction'
+
+export default {
+  components: {
+    AppTweetReplyAction,
+    AppTweetRetweetAction,
+    AppTweetLikeAction
+  },
+  props: {
+    tweet: {
+      required: true,
+      type: Object
     }
   }
+}
 </script>

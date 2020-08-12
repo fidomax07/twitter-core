@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 php artisan clear-compiled
 php artisan cache:clear

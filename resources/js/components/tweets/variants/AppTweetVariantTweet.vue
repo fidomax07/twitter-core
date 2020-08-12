@@ -5,9 +5,9 @@
       class="w-12 h-12 mr-3 rounded-full"
       alt="User's avatar">
     <div class="flex-grow">
-      <app-tweet-username :user="tweet.user" />
+      <app-tweet-username :user="tweet.user"/>
 
-      <app-tweet-body :tweet="tweet" />
+      <app-tweet-body :tweet="tweet"/>
 
       <div
         class="flex flex-wrap mb-4 mt-4"
@@ -19,7 +19,8 @@
         >
           <img
             :src="image.url"
-            class="rounded-lg">
+            class="rounded-lg"
+            alt="">
         </div>
       </div>
 
@@ -41,11 +42,15 @@
 
 <script>
 import AppTweetUsername from '../AppTweetUsername'
+import AppTweetBody from '../AppTweetBody'
+import AppTweetActionGroup from '../actions/AppTweetActionGroup'
 
 export default {
   name: 'AppTweetVariantTweet',
   components: {
-    AppTweetUsername
+    AppTweetUsername,
+    AppTweetBody,
+    AppTweetActionGroup
   },
   props: {
     tweet: {

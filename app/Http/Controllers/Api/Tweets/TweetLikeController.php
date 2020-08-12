@@ -15,13 +15,13 @@ class TweetLikeController extends Controller
         $this->middleware(['auth:sanctum']);
     }
 
-    /**
-     * Undocumented function
-     *
-     * @param Tweet $tweet
-     * @param Request $request
-     * @return void
-     */
+	/**
+	 * Undocumented function
+	 *
+	 * @param Tweet $tweet
+	 * @param Request $request
+	 * @return \Illuminate\Http\Response|void
+	 */
     public function store(Tweet $tweet, Request $request)
     {
         if ($request->user()->hasLiked($tweet)) {
@@ -48,7 +48,10 @@ class TweetLikeController extends Controller
      */
     public function destroy(Tweet $tweet, Request $request)
     {
-        $request->user()->likes->where('tweet_id', $tweet->id)->first()->delete();
+        $request->user()->likes
+	        ->where('tweet_id', $tweet->id)
+	        ->first()
+	        ->delete();
         
         broadcast(new TweetLikesWereUpdated($request->user(), $tweet));
     }

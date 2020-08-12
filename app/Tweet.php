@@ -6,6 +6,7 @@ use App\Tweets\Entities\EntityType;
 use Illuminate\Database\Eloquent\Model;
 use App\Tweets\Entities\EntityExtractor;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Tweet
@@ -26,25 +27,25 @@ use Illuminate\Database\Eloquent\Builder;
  * @property-read int|null $media_count
  * @property-read \App\Tweets\Entities\EntityDatabaseCollection|\App\Entity[] $mentions
  * @property-read int|null $mentions_count
- * @property-read \App\Tweet|null $originalTweet
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Tweet[] $replies
+ * @property-read Tweet|null $originalTweet
+ * @property-read \Illuminate\Database\Eloquent\Collection|Tweet[] $replies
  * @property-read int|null $replies_count
- * @property-read \App\Tweet|null $retweetedTweet
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Tweet[] $retweets
+ * @property-read Tweet|null $retweetedTweet
+ * @property-read \Illuminate\Database\Eloquent\Collection|Tweet[] $retweets
  * @property-read int|null $retweets_count
  * @property-read \App\User $user
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Tweet newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Tweet newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Tweet parent()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Tweet query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Tweet whereBody($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Tweet whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Tweet whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Tweet whereOriginalTweetId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Tweet whereParentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Tweet whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Tweet whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Tweet whereUserId($value)
+ * @method static Builder|Tweet newModelQuery()
+ * @method static Builder|Tweet newQuery()
+ * @method static Builder|Tweet parent()
+ * @method static Builder|Tweet query()
+ * @method static Builder|Tweet whereBody($value)
+ * @method static Builder|Tweet whereCreatedAt($value)
+ * @method static Builder|Tweet whereId($value)
+ * @method static Builder|Tweet whereOriginalTweetId($value)
+ * @method static Builder|Tweet whereParentId($value)
+ * @method static Builder|Tweet whereType($value)
+ * @method static Builder|Tweet whereUpdatedAt($value)
+ * @method static Builder|Tweet whereUserId($value)
  * @mixin \Eloquent
  */
 class Tweet extends Model
@@ -159,11 +160,13 @@ class Tweet extends Model
 	/**
 	 *
 	 *
-	 * @return void
+	 * @return Tweet|Builder|HasMany
 	 */
 	public function mentions()
 	{
-		return $this->hasMany(Entity::class)
-			->whereType(EntityType::MENTION);
+		/** @var Tweet|Builder|HasMany $relationship */
+		$relationship = $this->hasMany(Entity::class);
+
+		return $relationship->whereType(EntityType::MENTION);
 	}
 }

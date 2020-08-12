@@ -12,14 +12,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $following_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Follower newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Follower newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Follower query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Follower whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Follower whereFollowingId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Follower whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Follower whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Follower whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Follower newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Follower newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Follower query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Follower whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Follower whereFollowingId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Follower whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Follower whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Follower whereUserId($value)
  * @mixin \Eloquent
  */
 class Follower extends Model

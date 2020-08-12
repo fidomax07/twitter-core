@@ -7,7 +7,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Tweet::class, function (Faker $faker) {
     return [
-        'user_id' => 1,
+        'user_id' => function () {
+    	    return 1;
+        },
         'body' => $faker->sentence(3)
     ];
 });

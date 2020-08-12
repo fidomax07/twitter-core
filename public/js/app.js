@@ -68756,8 +68756,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/fidanademi/Code/twitter-clone/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/fidanademi/Code/twitter-clone/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/fidanademi/Code/twitter/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/fidanademi/Code/twitter/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
