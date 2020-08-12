@@ -55,9 +55,10 @@ class TweetWasCreated implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return $this->tweet->user->followers->map(function ($user) {
-            return new PrivateChannel('timeline.' . $user->id);
-        })
+        return $this->tweet->user->followers
+            ->map(function ($user) {
+                return new PrivateChannel('timeline.' . $user->id);
+            })
             ->toArray();
     }
 }

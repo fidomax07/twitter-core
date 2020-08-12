@@ -1,5 +1,6 @@
 <?php
 
+use App\Tweets\TweetType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,7 +15,7 @@ class AddTypeToTweetsTable extends Migration
     public function up()
     {
         Schema::table('tweets', function (Blueprint $table) {
-            $table->string('type');
+            $table->enum('type', TweetType::getTweetTypes())->default(TweetType::TWEET);
         });
     }
 

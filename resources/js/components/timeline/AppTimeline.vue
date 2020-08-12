@@ -12,7 +12,7 @@
     <div
       v-if="tweets.length"
       v-observe-visibility="{callback: handleScrolledToBottomOfTimeline}">
-    </div>
+    </div>-
   </div>
 </template>
 
@@ -79,6 +79,8 @@ export default {
 
     Echo.private(`timeline.${this.$user.id}`)
       .listen('.TweetWasCreated', (e) => {
+        console.log(e);
+
         this.PUSH_TWEETS([e])
       })
   }

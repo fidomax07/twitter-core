@@ -53,8 +53,13 @@
 <script>
   import axios from 'axios'
   import compose from '../../mixins/compose'
+  import AppTweetComposeTextarea from './AppTweetComposeTextarea'
 
   export default {
+    components: {
+      AppTweetComposeTextarea
+    },
+
     mixins: [
       compose
     ],
