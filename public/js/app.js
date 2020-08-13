@@ -3048,6 +3048,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     user: {
@@ -3068,6 +3071,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AppTweetReplyAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppTweetReplyAction */ "./resources/js/components/tweets/actions/AppTweetReplyAction.vue");
+/* harmony import */ var _AppTweetRetweetAction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppTweetRetweetAction */ "./resources/js/components/tweets/actions/AppTweetRetweetAction.vue");
+/* harmony import */ var _AppTweetLikeAction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppTweetLikeAction */ "./resources/js/components/tweets/actions/AppTweetLikeAction.vue");
 //
 //
 //
@@ -3088,7 +3094,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    AppTweetReplyAction: _AppTweetReplyAction__WEBPACK_IMPORTED_MODULE_0__["default"],
+    AppTweetRetweetAction: _AppTweetRetweetAction__WEBPACK_IMPORTED_MODULE_1__["default"],
+    AppTweetLikeAction: _AppTweetLikeAction__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
   props: {
     tweet: {
       required: true,
@@ -3115,6 +3129,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
 //
 //
 //
@@ -3492,6 +3509,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AppTweetUsername__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppTweetUsername */ "./resources/js/components/tweets/AppTweetUsername.vue");
+/* harmony import */ var _AppTweetBody__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../AppTweetBody */ "./resources/js/components/tweets/AppTweetBody.vue");
+/* harmony import */ var _actions_AppTweetActionGroup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/AppTweetActionGroup */ "./resources/js/components/tweets/actions/AppTweetActionGroup.vue");
+//
 //
 //
 //
@@ -3534,10 +3554,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AppTweetVariantTweet',
   components: {
-    AppTweetUsername: _AppTweetUsername__WEBPACK_IMPORTED_MODULE_0__["default"]
+    AppTweetUsername: _AppTweetUsername__WEBPACK_IMPORTED_MODULE_0__["default"],
+    AppTweetBody: _AppTweetBody__WEBPACK_IMPORTED_MODULE_1__["default"],
+    AppTweetActionGroup: _actions_AppTweetActionGroup__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
     tweet: {
@@ -51816,7 +51840,7 @@ var render = function() {
                   [
                     _c("img", {
                       staticClass: "rounded-lg",
-                      attrs: { src: image.url }
+                      attrs: { src: image.url, alt: "" }
                     })
                   ]
                 )
@@ -65661,14 +65685,22 @@ webpackContext.id = "./resources/js sync recursive \\.vue$/";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var vue_observe_visibility__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-observe-visibility */ "./node_modules/vue-observe-visibility/dist/vue-observe-visibility.esm.js");
-/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-js-modal */ "./node_modules/vue-js-modal/dist/index.js");
-/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_js_modal__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _store_timeline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/timeline */ "./resources/js/store/timeline.js");
-/* harmony import */ var _store_likes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store/likes */ "./resources/js/store/likes.js");
-/* harmony import */ var _store_retweets__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store/retweets */ "./resources/js/store/retweets.js");
-/* harmony import */ var _store_notifications__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./store/notifications */ "./resources/js/store/notifications.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue_observe_visibility__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-observe-visibility */ "./node_modules/vue-observe-visibility/dist/vue-observe-visibility.esm.js");
+/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-js-modal */ "./node_modules/vue-js-modal/dist/index.js");
+/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_js_modal__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _store_timeline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store/timeline */ "./resources/js/store/timeline.js");
+/* harmony import */ var _store_likes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store/likes */ "./resources/js/store/likes.js");
+/* harmony import */ var _store_retweets__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./store/retweets */ "./resources/js/store/retweets.js");
+/* harmony import */ var _store_notifications__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./store/notifications */ "./resources/js/store/notifications.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -65678,11 +65710,15 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
-Vue.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
-Vue.use(vue_observe_visibility__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
-Vue.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_2___default.a, {
+
+
+
+
+Vue.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+Vue.use(vue_observe_visibility__WEBPACK_IMPORTED_MODULE_2__["default"]);
+Vue.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_3___default.a, {
   dynamic: true,
   injectModalsContainer: true,
   dynamicDefaults: {
@@ -65706,16 +65742,12 @@ files.keys().map(function (key) {
   return Vue.component(key.split('/').pop().split('.')[0], files(key)["default"]);
 }); // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-
-
-
-
-var store = new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
+var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: {
-    timeline: _store_timeline__WEBPACK_IMPORTED_MODULE_3__["default"],
-    likes: _store_likes__WEBPACK_IMPORTED_MODULE_4__["default"],
-    retweets: _store_retweets__WEBPACK_IMPORTED_MODULE_5__["default"],
-    notifications: _store_notifications__WEBPACK_IMPORTED_MODULE_6__["default"]
+    timeline: _store_timeline__WEBPACK_IMPORTED_MODULE_4__["default"],
+    likes: _store_likes__WEBPACK_IMPORTED_MODULE_5__["default"],
+    retweets: _store_retweets__WEBPACK_IMPORTED_MODULE_6__["default"],
+    notifications: _store_notifications__WEBPACK_IMPORTED_MODULE_7__["default"]
   }
 });
 /**
@@ -65728,21 +65760,65 @@ var app = new Vue({
   el: '#app',
   store: store
 });
-Echo.channel('tweets').listen('.TweetLikesWereUpdated', function (e) {
-  if (e.user_id === User.id) {
-    store.dispatch('likes/syncLike', e.id);
-  }
+Echo.channel('tweets').listen('.TweetLikesWereUpdated', /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            if (!(e.user_id === User.id)) {
+              _context.next = 3;
+              break;
+            }
 
-  store.commit('timeline/SET_LIKES', e);
-  store.commit('notifications/SET_LIKES', e);
-}).listen('.TweetRetweetsWereUpdated', function (e) {
-  if (e.user_id === User.id) {
-    store.dispatch('retweets/syncRetweet', e.id);
-  }
+            _context.next = 3;
+            return store.dispatch('likes/syncLike', e.id);
 
-  store.commit('timeline/SET_RETWEETS', e);
-  store.commit('notifications/SET_RETWEETS', e);
-}).listen('.TweetRepliesWereUpdated', function (e) {
+          case 3:
+            store.commit('timeline/SET_LIKES', e);
+            store.commit('notifications/SET_LIKES', e);
+
+          case 5:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function (_x) {
+    return _ref.apply(this, arguments);
+  };
+}()).listen('.TweetRetweetsWereUpdated', /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            if (!(e.user_id === User.id)) {
+              _context2.next = 3;
+              break;
+            }
+
+            _context2.next = 3;
+            return store.dispatch('retweets/syncRetweet', e.id);
+
+          case 3:
+            store.commit('timeline/SET_RETWEETS', e);
+            store.commit('notifications/SET_RETWEETS', e);
+
+          case 5:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+
+  return function (_x2) {
+    return _ref2.apply(this, arguments);
+  };
+}()).listen('.TweetRepliesWereUpdated', function (e) {
   store.commit('timeline/SET_REPLIES', e);
   store.commit('notifications/SET_REPLIES', e);
 }).listen('.TweetWasDeleted', function (e) {
@@ -68516,13 +68592,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tweet_getters__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tweet/getters */ "./resources/js/store/tweet/getters.js");
 /* harmony import */ var _tweet_mutations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tweet/mutations */ "./resources/js/store/tweet/mutations.js");
 /* harmony import */ var _tweet_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tweet/actions */ "./resources/js/store/tweet/actions.js");
+/* harmony import */ var _utils_default_objects_DefaultTweetObject__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/default_objects/DefaultTweetObject */ "./resources/js/utils/default_objects/DefaultTweetObject.js");
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   namespaced: true,
   state: {
-    tweets: []
+    tweets: [_utils_default_objects_DefaultTweetObject__WEBPACK_IMPORTED_MODULE_3__["default"]]
   },
   getters: _tweet_getters__WEBPACK_IMPORTED_MODULE_0__["default"],
   mutations: _tweet_mutations__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -68692,17 +68770,20 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   SET_LIKES: function SET_LIKES(state, _ref) {
     var id = _ref.id,
         count = _ref.count;
-    state.tweets = state.tweets.map(function (t) {
-      if (t.id === id) {
-        t.likes_count = count;
+    state.tweets = state.tweets.map(mapAndUpdateTweetLikes); // *********************************
+
+    function mapAndUpdateTweetLikes(tweet) {
+      // Update only the tweet that matches the given id.
+      if (tweet.id === id) {
+        tweet.likes_count = count;
       }
 
-      if (Object(lodash__WEBPACK_IMPORTED_MODULE_0__["get"])(t.original_tweet, 'id') === id) {
-        t.original_tweet.likes_count = count;
+      if (Object(lodash__WEBPACK_IMPORTED_MODULE_0__["get"])(tweet.original_tweet, 'id') === id) {
+        tweet.original_tweet.likes_count = count;
       }
 
-      return t;
-    });
+      return tweet;
+    }
   },
   SET_RETWEETS: function SET_RETWEETS(state, _ref2) {
     var id = _ref2.id,
@@ -68734,6 +68815,54 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       return t;
     });
   }
+});
+
+/***/ }),
+
+/***/ "./resources/js/utils/default_objects/DefaultTweetObject.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/utils/default_objects/DefaultTweetObject.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DefaultUserObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DefaultUserObject */ "./resources/js/utils/default_objects/DefaultUserObject.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  id: null,
+  type: "tweet",
+  body: null,
+  created_at: null,
+  likes_count: 0,
+  original_tweet: null,
+  replies_count: 0,
+  retweets_count: 0,
+  media: {
+    data: []
+  },
+  entities: {
+    data: []
+  },
+  user: _DefaultUserObject__WEBPACK_IMPORTED_MODULE_0__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/utils/default_objects/DefaultUserObject.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/utils/default_objects/DefaultUserObject.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  avatar: null,
+  name: null,
+  username: null
 });
 
 /***/ }),

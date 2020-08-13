@@ -1,4 +1,4 @@
-import { get } from 'lodash'
+import {get} from 'lodash'
 
 export default {
   PUSH_TWEETS (state, data) {
@@ -16,17 +16,24 @@ export default {
   },
 
   SET_LIKES (state, { id, count }) {
-    state.tweets = state.tweets.map((t) => {
-      if (t.id === id) {
-        t.likes_count = count
+    state.tweets = state.tweets.map(mapAndUpdateTweetLikes)
+
+
+    // *********************************
+
+    function mapAndUpdateTweetLikes (tweet) {
+
+      // Update only the tweet that matches the given id.
+      if (tweet.id === id) {
+        tweet.likes_count = count
       }
 
-      if (get(t.original_tweet, 'id') === id) {
-        t.original_tweet.likes_count = count
+      if (get(tweet.original_tweet, 'id') === id) {
+        tweet.original_tweet.likes_count = count
       }
 
-      return t
-    })
+      return tweet
+    }
   },
 
   SET_RETWEETS (state, { id, count }) {

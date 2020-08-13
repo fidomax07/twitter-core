@@ -47,8 +47,16 @@ class UsersTableSeeder extends Seeder
 				'following_id' => 1
 			],
 			[
+				'user_id' => 2,
+				'following_id' => 2
+			],
+			[
 				'user_id' => 3,
 				'following_id' => 1
+			],
+			[
+				'user_id' => 3,
+				'following_id' => 3
 			],
 		]);
 	}
