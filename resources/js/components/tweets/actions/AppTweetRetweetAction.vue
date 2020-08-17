@@ -14,6 +14,7 @@
         Retweet with comment
       </app-dropdown-item>
     </app-dropdown>
+
     <app-tweet-retweet-action-button
       v-else
       :tweet="tweet"
@@ -23,47 +24,55 @@
 </template>
 
 <script>
-  import { mapGetters, mapActions } from 'vuex'
-  import AppTweetRetweetModal from '../../modals/AppTweetRetweetModal'
+import { mapGetters, mapActions } from 'vuex'
+import AppTweetRetweetModal from '../../modals/AppTweetRetweetModal'
+import AppDropdown from '../../dropdown/AppDropdown'
+import AppTweetRetweetActionButton from './AppTweetRetweetActionButton'
+import AppDropdownItem from '../../dropdown/AppDropdownItem'
 
-  export default {
-    props: {
-      tweet: {
-        required: true,
-        type: Object
+export default {
+  components: {
+    AppDropdown,
+    AppDropdownItem,
+    AppTweetRetweetActionButton
+  },
+  props: {
+    tweet: {
+      required: true,
+      type: Object
+    }
+  },
+
+  data () {
+    return {
+      AppTweetRetweetModal
+    }
+  },
+
+  computed: {
+    ...mapGetters({
+      retweets: 'retweets/retweets'
+    }),
+
+    retweeted () {
+      return this.retweets.includes(this.tweet.id)
+    }
+  },
+
+  methods: {
+    ...mapActions({
+      retweetTweet: 'retweets/retweetTweet',
+      unretweetTweet: 'retweets/unretweetTweet'
+    }),
+
+    retweetOrUnretweet () {
+      if (this.retweeted) {
+        this.unretweetTweet(this.tweet)
+        return
       }
-    },
 
-    data () {
-      return {
-        AppTweetRetweetModal
-      }
-    },
-
-    computed: {
-      ...mapGetters({
-        retweets: 'retweets/retweets'
-      }),
-
-      retweeted () {
-        return this.retweets.includes(this.tweet.id)
-      }
-    },
-
-    methods: {
-      ...mapActions({
-        retweetTweet: 'retweets/retweetTweet',
-        unretweetTweet: 'retweets/unretweetTweet',
-      }),
-
-      retweetOrUnretweet () {
-        if (this.retweeted) {
-          this.unretweetTweet(this.tweet)
-          return
-        }
-
-        this.retweetTweet(this.tweet)
-      }
+      this.retweetTweet(this.tweet)
     }
   }
+}
 </script>

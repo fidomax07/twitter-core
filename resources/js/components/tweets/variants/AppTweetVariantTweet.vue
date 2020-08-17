@@ -5,9 +5,9 @@
       class="w-12 h-12 mr-3 rounded-full"
       alt="User's avatar">
     <div class="flex-grow">
-      <app-tweet-username :user="tweet.user"/>
+      <app-tweet-username :user="tweet.user" />
 
-      <app-tweet-body :tweet="tweet"/>
+      <app-tweet-body :tweet="tweet" />
 
       <div
         class="flex flex-wrap mb-4 mt-4"
@@ -33,9 +33,7 @@
           class="rounded-lg"></video>
       </div>
 
-      <app-tweet-action-group
-        :tweet="tweet"
-      />
+      <app-tweet-action-group :tweet="tweet" />
     </div>
   </div>
 </template>
