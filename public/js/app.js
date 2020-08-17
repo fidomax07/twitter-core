@@ -3240,6 +3240,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modals_AppTweetRetweetModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../modals/AppTweetRetweetModal */ "./resources/js/components/modals/AppTweetRetweetModal.vue");
+/* harmony import */ var _dropdown_AppDropdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../dropdown/AppDropdown */ "./resources/js/components/dropdown/AppDropdown.vue");
+/* harmony import */ var _AppTweetRetweetActionButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AppTweetRetweetActionButton */ "./resources/js/components/tweets/actions/AppTweetRetweetActionButton.vue");
+/* harmony import */ var _dropdown_AppDropdownItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../dropdown/AppDropdownItem */ "./resources/js/components/dropdown/AppDropdownItem.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -3272,7 +3275,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    AppDropdown: _dropdown_AppDropdown__WEBPACK_IMPORTED_MODULE_2__["default"],
+    AppDropdownItem: _dropdown_AppDropdownItem__WEBPACK_IMPORTED_MODULE_4__["default"],
+    AppTweetRetweetActionButton: _AppTweetRetweetActionButton__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
   props: {
     tweet: {
       required: true,
@@ -68713,7 +68724,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   tweets: function tweets(state) {
-    return state.tweets.sort(function (a, b) {
+    return state.tweets.filter(function (t) {
+      return t.id != null;
+    }).sort(function (a, b) {
       return b.created_at - a.created_at;
     });
   },
@@ -68885,8 +68898,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/fidanademi/Code/twitter/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/fidanademi/Code/twitter/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/fidanademi/Code/twitter-clone/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/fidanademi/Code/twitter-clone/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

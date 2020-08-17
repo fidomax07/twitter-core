@@ -1,4 +1,4 @@
-import {get} from 'lodash'
+import { get } from 'lodash'
 
 export default {
   PUSH_TWEETS (state, data) {
