@@ -31,7 +31,7 @@ class TimelineController extends Controller
                 'originalTweet.retweets',
                 'originalTweet.media.baseMedia',
             ])
-            ->paginate(3);
+            ->paginate(9);
 
         return new TweetCollection($tweets);
     }

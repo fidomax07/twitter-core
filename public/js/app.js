@@ -2894,6 +2894,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -2938,6 +2939,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       this.page++;
+      console.log('we hit the bottom');
       this.loadTweets();
     }
   }),
@@ -51187,13 +51189,13 @@ var render = function() {
               {
                 name: "observe-visibility",
                 rawName: "v-observe-visibility",
-                value: { callback: _vm.handleScrolledToBottomOfTimeline },
-                expression: "{callback: handleScrolledToBottomOfTimeline}"
+                value: _vm.handleScrolledToBottomOfTimeline,
+                expression: "handleScrolledToBottomOfTimeline"
               }
             ]
           })
         : _vm._e(),
-      _vm._v("-\n")
+      _vm._v("\n  -\n")
     ],
     2
   )
@@ -68713,7 +68715,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   tweets: function tweets(state) {
-    return state.tweets.sort(function (a, b) {
+    return state.tweets.filter(function (t) {
+      return t.id != null;
+    }).sort(function (a, b) {
       return b.created_at - a.created_at;
     });
   },

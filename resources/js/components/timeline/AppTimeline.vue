@@ -1,23 +1,24 @@
 <template>
   <div>
     <div class="border-b-8 border-gray-800 p-4 w-full">
-      <app-tweet-compose />
+      <app-tweet-compose/>
     </div>
 
     <app-tweet
       v-for="tweet in tweets"
       :key="tweet.id"
-      :tweet="tweet" />
+      :tweet="tweet"/>
 
     <div
       v-if="tweets.length"
-      v-observe-visibility="{callback: handleScrolledToBottomOfTimeline}">
-    </div>-
+      v-observe-visibility="handleScrolledToBottomOfTimeline">
+    </div>
+    -
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters, mapMutations } from 'vuex'
+import {mapActions, mapGetters, mapMutations} from 'vuex'
 import AppTweetCompose from '../compose/AppTweetCompose'
 import AppTweet from '../tweets/AppTweet'
 
@@ -63,13 +64,11 @@ export default {
       if (!isVisible) {
         return
       }
-
       if (this.lastPage === this.page) {
         return
       }
 
       this.page++
-
       this.loadTweets()
     }
   },
@@ -79,7 +78,7 @@ export default {
 
     Echo.private(`timeline.${this.$user.id}`)
       .listen('.TweetWasCreated', (e) => {
-        console.log(e);
+        console.log(e)
 
         this.PUSH_TWEETS([e])
       })
