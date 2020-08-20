@@ -1,17 +1,25 @@
 <template>
-  <form class="flex" @submit.prevent="submit">
-    <img :src="$user.avatar" class="w-12 h-12 rounded-full mr-3">
+  <form
+    class="flex"
+    @submit.prevent="submit">
+    <img
+      :src="$user.avatar"
+      class="w-12 h-12 rounded-full mr-3"
+      alt="User's avatar">
     <div class="flex-grow">
       <app-tweet-compose-textarea
         v-model="form.body"
         placeholder="What's happening?"
       />
 
-      <AppTweetMediaProgress class="mb-4" :progress="media.progress" v-if="media.progress" />
+      <AppTweetMediaProgress
+        class="mb-4"
+        :progress="media.progress"
+        v-if="media.progress"/>
 
       <app-tweet-image-preview
         :images="media.images"
-        v-if="media.images.length"
+        v-if="media.images.length > 0"
         @removed="removeImage"
       />
 
@@ -51,23 +59,33 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import compose from '../../mixins/compose'
-  import AppTweetComposeTextarea from './AppTweetComposeTextarea'
+import axios from 'axios'
+import compose from '../../mixins/compose'
+import AppTweetComposeTextarea from './AppTweetComposeTextarea'
+import AppTweetComposeLimit from './AppTweetComposeLimit'
+import AppTweetComposeMediaButton from './media/AppTweetComposeMediaButton'
+import AppTweetImagePreview from './media/AppTweetImagePreview'
+import AppTweetVideoPreview from './media/AppTweetVideoPreview'
+import AppTweetMediaProgress from './media/AppTweetMediaProgress'
 
-  export default {
-    components: {
-      AppTweetComposeTextarea
-    },
+export default {
+  components: {
+    AppTweetComposeTextarea,
+    AppTweetComposeLimit,
+    AppTweetComposeMediaButton,
+    AppTweetImagePreview,
+    AppTweetVideoPreview,
+    AppTweetMediaProgress
+  },
 
-    mixins: [
-      compose
-    ],
+  mixins: [
+    compose
+  ],
 
-    methods: {
-      async post () {
-        await axios.post('/api/tweets', this.form)
-      }
+  methods: {
+    async post () {
+      await axios.post('/api/tweets', this.form)
     }
   }
+}
 </script>

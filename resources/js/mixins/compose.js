@@ -80,15 +80,17 @@ export default {
     },
 
     handleMediaSelected (files) {
-      Array.from(files).slice(0, 4).forEach((file) => {
-        if (this.mediaTypes.image.includes(file.type)) {
-          this.media.images.push(file)
-        }
+      Array.from(files)
+        .slice(0, 4)
+        .forEach((file) => {
+          if (this.mediaTypes.image.includes(file.type)) {
+            this.media.images.push(file)
+          }
 
-        if (this.mediaTypes.video.includes(file.type)) {
-          this.media.video = file
-        }
-      })
+          if (this.mediaTypes.video.includes(file.type)) {
+            this.media.video = file
+          }
+        })
 
       if (this.media.video) {
         this.media.images = []
@@ -96,7 +98,7 @@ export default {
     }
   },
 
-  mounted () {
-    this.getMediaTypes()
+  async mounted () {
+    await this.getMediaTypes()
   }
 }

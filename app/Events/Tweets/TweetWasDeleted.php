@@ -4,10 +4,7 @@ namespace App\Events\Tweets;
 
 use App\Tweet;
 use Illuminate\Broadcasting\Channel;
-use App\Http\Resources\TweetResource;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
@@ -18,21 +15,21 @@ class TweetWasDeleted implements ShouldBroadcast
 
     protected $tweet;
 
-    /**
-     * Create a new event instance.
-     *
-     * @return void
-     */
+	/**
+	 * Create a new event instance.
+	 *
+	 * @param Tweet $tweet
+	 */
     public function __construct(Tweet $tweet)
     {
         $this->tweet = $tweet;
     }
 
-    /**
-     * Undocumented function
-     *
-     * @return void
-     */
+	/**
+	 * Undocumented function
+	 *
+	 * @return array
+	 */
     public function broadcastWith()
     {
         return [
@@ -43,7 +40,7 @@ class TweetWasDeleted implements ShouldBroadcast
     /**
      * Undocumented function
      *
-     * @return void
+     * @return string
      */
     public function broadcastAs()
     {

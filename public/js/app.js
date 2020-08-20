@@ -1926,6 +1926,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mixins_compose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/compose */ "./resources/js/mixins/compose.js");
 /* harmony import */ var _AppTweetComposeTextarea__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AppTweetComposeTextarea */ "./resources/js/components/compose/AppTweetComposeTextarea.vue");
+/* harmony import */ var _AppTweetComposeLimit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AppTweetComposeLimit */ "./resources/js/components/compose/AppTweetComposeLimit.vue");
+/* harmony import */ var _media_AppTweetComposeMediaButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./media/AppTweetComposeMediaButton */ "./resources/js/components/compose/media/AppTweetComposeMediaButton.vue");
+/* harmony import */ var _media_AppTweetImagePreview__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./media/AppTweetImagePreview */ "./resources/js/components/compose/media/AppTweetImagePreview.vue");
+/* harmony import */ var _media_AppTweetVideoPreview__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./media/AppTweetVideoPreview */ "./resources/js/components/compose/media/AppTweetVideoPreview.vue");
+/* harmony import */ var _media_AppTweetMediaProgress__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./media/AppTweetMediaProgress */ "./resources/js/components/compose/media/AppTweetMediaProgress.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -1984,12 +1989,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    AppTweetComposeTextarea: _AppTweetComposeTextarea__WEBPACK_IMPORTED_MODULE_3__["default"]
+    AppTweetComposeTextarea: _AppTweetComposeTextarea__WEBPACK_IMPORTED_MODULE_3__["default"],
+    AppTweetComposeLimit: _AppTweetComposeLimit__WEBPACK_IMPORTED_MODULE_4__["default"],
+    AppTweetComposeMediaButton: _media_AppTweetComposeMediaButton__WEBPACK_IMPORTED_MODULE_5__["default"],
+    AppTweetImagePreview: _media_AppTweetImagePreview__WEBPACK_IMPORTED_MODULE_6__["default"],
+    AppTweetVideoPreview: _media_AppTweetVideoPreview__WEBPACK_IMPORTED_MODULE_7__["default"],
+    AppTweetMediaProgress: _media_AppTweetMediaProgress__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   mixins: [_mixins_compose__WEBPACK_IMPORTED_MODULE_2__["default"]],
   methods: {
@@ -2530,6 +2553,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2558,6 +2585,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -2621,6 +2651,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _compose_AppTweetRetweetCompose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../compose/AppTweetRetweetCompose */ "./resources/js/components/compose/AppTweetRetweetCompose.vue");
 //
 //
 //
@@ -2635,9 +2666,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    AppTweetRetweetCompose: _compose_AppTweetRetweetCompose__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   props: {
     tweet: {
       required: true,
@@ -2939,7 +2972,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       this.page++;
-      console.log('we hit the bottom');
       this.loadTweets();
     }
   }),
@@ -3076,9 +3108,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AppTweetReplyAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppTweetReplyAction */ "./resources/js/components/tweets/actions/AppTweetReplyAction.vue");
 /* harmony import */ var _AppTweetRetweetAction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppTweetRetweetAction */ "./resources/js/components/tweets/actions/AppTweetRetweetAction.vue");
 /* harmony import */ var _AppTweetLikeAction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppTweetLikeAction */ "./resources/js/components/tweets/actions/AppTweetLikeAction.vue");
-//
-//
-//
 //
 //
 //
@@ -3275,6 +3304,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -3337,6 +3367,10 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -3524,8 +3558,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AppTweetUsername__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppTweetUsername */ "./resources/js/components/tweets/AppTweetUsername.vue");
 /* harmony import */ var _AppTweetBody__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../AppTweetBody */ "./resources/js/components/tweets/AppTweetBody.vue");
 /* harmony import */ var _actions_AppTweetActionGroup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/AppTweetActionGroup */ "./resources/js/components/tweets/actions/AppTweetActionGroup.vue");
-//
-//
 //
 //
 //
@@ -50140,7 +50172,7 @@ var render = function() {
     [
       _c("img", {
         staticClass: "w-12 h-12 rounded-full mr-3",
-        attrs: { src: _vm.$user.avatar }
+        attrs: { src: _vm.$user.avatar, alt: "User's avatar" }
       }),
       _vm._v(" "),
       _c(
@@ -68900,8 +68932,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/fidanademi/Code/twitter-clone/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/fidanademi/Code/twitter-clone/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/fidanademi/Code/twitter/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/fidanademi/Code/twitter/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
