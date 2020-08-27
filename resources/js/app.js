@@ -22,9 +22,9 @@ Vue.use(VueObserveVisibility)
 
 Vue.use(VModal, {
   dynamic: true,
-  injectModalsContainer: true,
+  //injectModalsContainer: true,
   dynamicDefaults: {
-    pivotY: 0.1,
+    shiftY: 0.1,
     height: 'auto',
     classes: '!bg-gray-900 rounded-lg p-4'
   }

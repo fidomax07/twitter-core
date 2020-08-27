@@ -59,11 +59,11 @@ export default {
 
   computed: {
     images () {
-      return this.tweet.media.data.filter(m => m.type === 'image')
+      return this.tweet.media.data.filter(m => m.type == 'image')
     },
 
     video () {
-      return this.tweet.media.data.filter(m => m.type === 'video')[0]
+      return this.tweet.media.data.filter(m => m.type == 'video')[0]
     }
   }
 }

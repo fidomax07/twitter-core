@@ -15,7 +15,7 @@
       <AppTweetMediaProgress
         class="mb-4"
         :progress="media.progress"
-        v-if="media.progress"/>
+        v-if="media.progress > 0" />
 
       <app-tweet-image-preview
         :images="media.images"

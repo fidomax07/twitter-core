@@ -1,6 +1,6 @@
 <template>
   <p class="text-gray-300 whitespace-pre-wrap">
-    <component :is="body"/>
+    <component :is="body" />
   </p>
 </template>
 

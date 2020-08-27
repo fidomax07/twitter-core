@@ -1,6 +1,11 @@
 <template>
-  <form class="flex" @submit.prevent="submit">
-    <img :src="$user.avatar" class="w-12 h-12 rounded-full mr-3">
+  <form
+    class="flex"
+    @submit.prevent="submit">
+    <img
+      :src="$user.avatar"
+      class="w-12 h-12 rounded-full mr-3"
+      alt="User's avatar">
     <div class="flex-grow">
       <app-tweet-compose-textarea
         v-model="form.body"
@@ -9,7 +14,7 @@
 
       <div class="flex justify-between">
         <ul class="flex items-center">
-          
+
         </ul>
 
         <div class="flex items-center justify-end">
@@ -32,36 +37,42 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import { mapActions } from 'vuex'
+import {mapActions} from 'vuex'
 
-  import compose from '../../mixins/compose'
+import compose from '../../mixins/compose'
+import AppTweetComposeTextarea from './AppTweetComposeTextarea'
+import AppTweetComposeLimit from './AppTweetComposeLimit'
 
-  export default {
-    mixins: [
-      compose
-    ],
+export default {
+  components: {
+    AppTweetComposeTextarea,
+    AppTweetComposeLimit
+  },
 
-    props: {
-      tweet: {
-        required: true,
-        type: Object
-      }
-    },
+  mixins: [
+    compose
+  ],
 
-    methods: {
-      ...mapActions({
-        quoteTweet: 'timeline/quoteTweet'
-      }),
+  props: {
+    tweet: {
+      required: true,
+      type: Object
+    }
+  },
 
-      async post () {
-        await this.quoteTweet({
-          tweet: this.tweet,
-          data: this.form
-        })
+  methods: {
+    ...mapActions({
+      quoteTweet: 'timeline/quoteTweet'
+    }),
 
-        this.$emit('success')
-      }
+    async post () {
+      await this.quoteTweet({
+        tweet: this.tweet,
+        data: this.form
+      })
+
+      this.$emit('success')
     }
   }
+}
 </script>

@@ -20,9 +20,9 @@ export default {
 
   methods: {
     async submit () {
-      if (this.media.images.length || this.media.video) {
+      if (this.media.images.length > 0 || this.media.video) {
         let media = await this.uploadMedia()
-        this.form.media = media.data.data.map(r => r.id)
+        this.form.media = media.data.data.map(mediaIdObject => mediaIdObject.id)
       }
 
       await this.post()
@@ -35,7 +35,8 @@ export default {
     },
 
     handleUploadProgress (event) {
-      this.media.progress = parseInt(Math.round((event.loaded / event.total) * 100))
+      var { loaded, total } = event
+      this.media.progress = Math.round((loaded / total) * 100)
     },
 
     async uploadMedia () {
@@ -50,7 +51,7 @@ export default {
     buildMediaForm () {
       let form = new FormData()
 
-      if (this.media.images.length) {
+      if (this.media.images.length > 0) {
         this.media.images.forEach((image, index) => {
           form.append(`media[${index}]`, image)
         })

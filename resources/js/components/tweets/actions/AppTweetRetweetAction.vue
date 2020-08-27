@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import {mapActions, mapGetters} from 'vuex'
 import AppTweetRetweetModal from '../../modals/AppTweetRetweetModal'
 import AppDropdown from '../../dropdown/AppDropdown'
 import AppTweetRetweetActionButton from './AppTweetRetweetActionButton'

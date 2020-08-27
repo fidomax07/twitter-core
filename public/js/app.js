@@ -2406,6 +2406,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     id: {
@@ -2426,6 +2435,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2479,6 +2497,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     progress: {
@@ -2499,6 +2520,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3617,12 +3648,12 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     images: function images() {
       return this.tweet.media.data.filter(function (m) {
-        return m.type === 'image';
+        return m.type == 'image';
       });
     },
     video: function video() {
       return this.tweet.media.data.filter(function (m) {
-        return m.type === 'video';
+        return m.type == 'video';
       })[0];
     }
   }
@@ -50190,14 +50221,14 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _vm.media.progress
+          _vm.media.progress > 0
             ? _c("AppTweetMediaProgress", {
                 staticClass: "mb-4",
                 attrs: { progress: _vm.media.progress }
               })
             : _vm._e(),
           _vm._v(" "),
-          _vm.media.images.length
+          _vm.media.images.length > 0
             ? _c("app-tweet-image-preview", {
                 attrs: { images: _vm.media.images },
                 on: { removed: _vm.removeImage }
@@ -50645,7 +50676,10 @@ var render = function() {
         [
           _c("img", {
             staticClass: "rounded-lg",
-            attrs: { src: _vm.generateImagePreview(image) }
+            attrs: {
+              src: _vm.generateImagePreview(image),
+              alt: "Uploaded image preview"
+            }
           }),
           _vm._v(" "),
           _c(
@@ -65765,9 +65799,9 @@ Vue.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 Vue.use(vue_observe_visibility__WEBPACK_IMPORTED_MODULE_2__["default"]);
 Vue.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_3___default.a, {
   dynamic: true,
-  injectModalsContainer: true,
+  //injectModalsContainer: true,
   dynamicDefaults: {
-    pivotY: 0.1,
+    shiftY: 0.1,
     height: 'auto',
     classes: '!bg-gray-900 rounded-lg p-4'
   }
@@ -68177,7 +68211,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!(_this.media.images.length || _this.media.video)) {
+                if (!(_this.media.images.length > 0 || _this.media.video)) {
                   _context.next = 5;
                   break;
                 }
@@ -68187,8 +68221,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 media = _context.sent;
-                _this.form.media = media.data.data.map(function (r) {
-                  return r.id;
+                _this.form.media = media.data.data.map(function (mediaIdObject) {
+                  return mediaIdObject.id;
                 });
 
               case 5:
@@ -68211,7 +68245,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     handleUploadProgress: function handleUploadProgress(event) {
-      this.media.progress = parseInt(Math.round(event.loaded / event.total * 100));
+      var loaded = event.loaded,
+          total = event.total;
+      this.media.progress = Math.round(loaded / total * 100);
     },
     uploadMedia: function uploadMedia() {
       var _this2 = this;
@@ -68243,7 +68279,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     buildMediaForm: function buildMediaForm() {
       var form = new FormData();
 
-      if (this.media.images.length) {
+      if (this.media.images.length > 0) {
         this.media.images.forEach(function (image, index) {
           form.append("media[".concat(index, "]"), image);
         });
@@ -68306,7 +68342,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   mounted: function mounted() {
-    this.getMediaTypes();
+    var _this5 = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.next = 2;
+              return _this5.getMediaTypes();
+
+            case 2:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }))();
   }
 });
 
