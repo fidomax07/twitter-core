@@ -11,20 +11,20 @@ use App\Events\Tweets\TweetRetweetsWereUpdated;
 
 class TweetQuoteController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth:sanctum']);
-    }
-    
-    public function store(Tweet $tweet, Request $request)
-    {
-        $retweet = $request->user()->tweets()->create([
-            'type' => TweetType::QUOTE,
-            'body' => $request->body,
-            'original_tweet_id' => $tweet->id
-        ]);
+	public function __construct()
+	{
+		$this->middleware(['auth:sanctum']);
+	}
 
-        broadcast(new TweetWasCreated($retweet));
-        broadcast(new TweetRetweetsWereUpdated($request->user(), $tweet));
-    }
+	public function store(Tweet $tweet, Request $request)
+	{
+		$retweet = $request->user()->tweets()->create([
+			'type' => TweetType::QUOTE,
+			'body' => $request->body,
+			'original_tweet_id' => $tweet->id
+		]);
+
+		broadcast(new TweetWasCreated($retweet));
+		broadcast(new TweetRetweetsWereUpdated($request->user(), $tweet));
+	}
 }

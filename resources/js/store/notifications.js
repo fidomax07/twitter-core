@@ -40,7 +40,7 @@ export default {
 
       commit('PUSH_NOTIFICATIONS', response.data.data)
 
-      dispatch('getTweets', `/api/tweets?ids=${getters.tweetIdsFromNotifications.join(',')}`)
+      await dispatch('getTweets', `/api/tweets?ids=${getters.tweetIdsFromNotifications.join(',')}`)
 
       return response
     }

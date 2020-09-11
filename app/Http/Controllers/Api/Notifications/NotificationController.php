@@ -8,26 +8,26 @@ use App\Http\Resources\NotificationCollection;
 
 class NotificationController extends Controller
 {
-    /**
-     * Undocumented function
-     */
-    public function __construct()
-    {
-        // $this->middleware(['auth:sanctum']);
-    }
+	/**
+	 * Undocumented function
+	 */
+	public function __construct()
+	{
+		// $this->middleware(['auth:sanctum']);
+	}
 
-    /**
-     * Undocumented function
-     *
-     * @param Request $request
-     * @return void
-     */
-    public function index(Request $request)
-    {
-        $notifications = $request->user()
-            ->notifications()
-            ->paginate(5);
+	/**
+	 * Undocumented function
+	 *
+	 * @param Request $request
+	 * @return NotificationCollection
+	 */
+	public function index(Request $request)
+	{
+		$notifications = $request->user()
+			->notifications()
+			->paginate(5);
 
-        return new NotificationCollection($notifications);
-    }
+		return new NotificationCollection($notifications);
+	}
 }

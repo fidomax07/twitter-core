@@ -2163,10 +2163,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _mixins_compose__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/compose */ "./resources/js/mixins/compose.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _mixins_compose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/compose */ "./resources/js/mixins/compose.js");
+/* harmony import */ var _AppTweetComposeTextarea__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AppTweetComposeTextarea */ "./resources/js/components/compose/AppTweetComposeTextarea.vue");
+/* harmony import */ var _AppTweetComposeLimit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AppTweetComposeLimit */ "./resources/js/components/compose/AppTweetComposeLimit.vue");
+/* harmony import */ var _media_AppTweetComposeMediaButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./media/AppTweetComposeMediaButton */ "./resources/js/components/compose/media/AppTweetComposeMediaButton.vue");
+/* harmony import */ var _media_AppTweetImagePreview__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./media/AppTweetImagePreview */ "./resources/js/components/compose/media/AppTweetImagePreview.vue");
+/* harmony import */ var _media_AppTweetVideoPreview__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./media/AppTweetVideoPreview */ "./resources/js/components/compose/media/AppTweetVideoPreview.vue");
+/* harmony import */ var _media_AppTweetMediaProgress__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./media/AppTweetMediaProgress */ "./resources/js/components/compose/media/AppTweetMediaProgress.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2231,18 +2235,39 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_mixins_compose__WEBPACK_IMPORTED_MODULE_3__["default"]],
+  components: {
+    AppTweetComposeTextarea: _AppTweetComposeTextarea__WEBPACK_IMPORTED_MODULE_3__["default"],
+    AppTweetComposeLimit: _AppTweetComposeLimit__WEBPACK_IMPORTED_MODULE_4__["default"],
+    AppTweetComposeMediaButton: _media_AppTweetComposeMediaButton__WEBPACK_IMPORTED_MODULE_5__["default"],
+    AppTweetImagePreview: _media_AppTweetImagePreview__WEBPACK_IMPORTED_MODULE_6__["default"],
+    AppTweetVideoPreview: _media_AppTweetVideoPreview__WEBPACK_IMPORTED_MODULE_7__["default"],
+    AppTweetMediaProgress: _media_AppTweetMediaProgress__WEBPACK_IMPORTED_MODULE_8__["default"]
+  },
+  mixins: [_mixins_compose__WEBPACK_IMPORTED_MODULE_2__["default"]],
   props: {
     tweet: {
       required: true,
       type: Object
     }
   },
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])({
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
     replyToTweet: 'timeline/replyToTweet'
   })), {}, {
     post: function post() {
@@ -2286,10 +2311,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _mixins_compose__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/compose */ "./resources/js/mixins/compose.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _mixins_compose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/compose */ "./resources/js/mixins/compose.js");
+/* harmony import */ var _AppTweetComposeTextarea__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AppTweetComposeTextarea */ "./resources/js/components/compose/AppTweetComposeTextarea.vue");
+/* harmony import */ var _AppTweetComposeLimit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AppTweetComposeLimit */ "./resources/js/components/compose/AppTweetComposeLimit.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2335,18 +2360,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_mixins_compose__WEBPACK_IMPORTED_MODULE_3__["default"]],
+  components: {
+    AppTweetComposeTextarea: _AppTweetComposeTextarea__WEBPACK_IMPORTED_MODULE_3__["default"],
+    AppTweetComposeLimit: _AppTweetComposeLimit__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
+  mixins: [_mixins_compose__WEBPACK_IMPORTED_MODULE_2__["default"]],
   props: {
     tweet: {
       required: true,
       type: Object
     }
   },
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])({
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
     quoteTweet: 'timeline/quoteTweet'
   })), {}, {
     post: function post() {
@@ -2645,6 +2680,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _compose_AppTweetReplyCompose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../compose/AppTweetReplyCompose */ "./resources/js/components/compose/AppTweetReplyCompose.vue");
 //
 //
 //
@@ -2662,7 +2698,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    AppTweetReplyCompose: _compose_AppTweetReplyCompose__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   props: {
     tweet: {
       required: true,
@@ -50417,7 +50457,7 @@ var render = function() {
     [
       _c("img", {
         staticClass: "w-12 h-12 rounded-full mr-3",
-        attrs: { src: _vm.$user.avatar }
+        attrs: { src: _vm.$user.avatar, alt: "User's avatar" }
       }),
       _vm._v(" "),
       _c(
@@ -50536,7 +50576,7 @@ var render = function() {
     [
       _c("img", {
         staticClass: "w-12 h-12 rounded-full mr-3",
-        attrs: { src: _vm.$user.avatar }
+        attrs: { src: _vm.$user.avatar, alt: "User's avatar" }
       }),
       _vm._v(" "),
       _c(

@@ -7,15 +7,21 @@ use Illuminate\Notifications\Notification;
 
 class DatabaseNotificationChannel
 {
-    public function send($notifiable, Notification $notification)
-    {
-        $data = $notification->toArray($notifiable);
+	public function send($notifiable, Notification $notification)
+	{
+		$data = $notification->toArray($notifiable);
 
-        return $notifiable->routeNotificationFor('database')->create([
-            'id' => $notification->id,
-            'type' => (new ReflectionClass($notification))->getShortName(),
-            'data' => $data,
-            'read_at' => null,
-        ]);
-    }
+		$type = 'TweetLiked';
+		try {
+			$type = (new ReflectionClass($notification))->getShortName();
+		} catch (\ReflectionException $e) {
+		}
+
+		return $notifiable->routeNotificationFor('database')->create([
+			'id' => $notification->id,
+			'type' => $type,
+			'data' => $data,
+			'read_at' => null,
+		]);
+	}
 }

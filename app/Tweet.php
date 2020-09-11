@@ -68,7 +68,6 @@ class Tweet extends Model
 
 	/**
 	 *
-	 *
 	 * @param Builder $builder
 	 * @return Builder
 	 */

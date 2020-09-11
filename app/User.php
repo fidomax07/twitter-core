@@ -5,6 +5,7 @@ namespace App;
 use App\Tweets\TweetType;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 /**
  * App\User
@@ -144,7 +145,7 @@ class User extends Authenticatable
 	/**
 	 * Undocumented function
 	 *
-	 * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+	 * @return HasManyThrough|Tweet
 	 */
 	public function tweetsFromFollowing()
 	{

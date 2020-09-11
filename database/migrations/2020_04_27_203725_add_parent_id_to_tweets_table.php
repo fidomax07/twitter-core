@@ -15,7 +15,10 @@ class AddParentIdToTweetsTable extends Migration
     {
         Schema::table('tweets', function (Blueprint $table) {
             $table->bigInteger('parent_id')->unsigned()->index()->nullable();
-            $table->foreign('parent_id')->references('id')->on('tweets')->onDelete('cascade');
+
+            $table->foreign('parent_id')
+	            ->references('id')->on('tweets')
+	            ->onDelete('cascade');
         });
     }
 

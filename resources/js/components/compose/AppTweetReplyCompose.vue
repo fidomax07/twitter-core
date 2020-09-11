@@ -1,13 +1,21 @@
 <template>
-  <form class="flex" @submit.prevent="submit">
-    <img :src="$user.avatar" class="w-12 h-12 rounded-full mr-3">
+  <form
+    class="flex"
+    @submit.prevent="submit">
+    <img
+      :src="$user.avatar"
+      class="w-12 h-12 rounded-full mr-3"
+      alt="User's avatar">
     <div class="flex-grow">
       <app-tweet-compose-textarea
         v-model="form.body"
         placeholder="Tweet your reply"
       />
 
-      <AppTweetMediaProgress class="mb-4" :progress="media.progress" v-if="media.progress" />
+      <AppTweetMediaProgress
+        class="mb-4"
+        :progress="media.progress"
+        v-if="media.progress" />
 
       <app-tweet-image-preview
         :images="media.images"
@@ -51,35 +59,49 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import { mapActions } from 'vuex'
-  import compose from '../../mixins/compose'
+import {mapActions} from 'vuex'
+import compose from '../../mixins/compose'
+import AppTweetComposeTextarea from './AppTweetComposeTextarea'
+import AppTweetComposeLimit from './AppTweetComposeLimit'
+import AppTweetComposeMediaButton from './media/AppTweetComposeMediaButton'
+import AppTweetImagePreview from './media/AppTweetImagePreview'
+import AppTweetVideoPreview from './media/AppTweetVideoPreview'
+import AppTweetMediaProgress from './media/AppTweetMediaProgress'
 
-  export default {
-    mixins: [
-      compose
-    ],
+export default {
+  components: {
+    AppTweetComposeTextarea,
+    AppTweetComposeLimit,
+    AppTweetComposeMediaButton,
+    AppTweetImagePreview,
+    AppTweetVideoPreview,
+    AppTweetMediaProgress
+  },
 
-    props: {
-      tweet: {
-        required: true,
-        type: Object
-      }
-    },
+  mixins: [
+    compose
+  ],
 
-    methods: {
-      ...mapActions({
-        replyToTweet: 'timeline/replyToTweet'
-      }),
+  props: {
+    tweet: {
+      required: true,
+      type: Object
+    }
+  },
 
-      async post () {
-        await this.replyToTweet({
-          tweet: this.tweet,
-          data: this.form
-        })
+  methods: {
+    ...mapActions({
+      replyToTweet: 'timeline/replyToTweet'
+    }),
 
-        this.$emit('success')
-      }
+    async post () {
+      await this.replyToTweet({
+        tweet: this.tweet,
+        data: this.form
+      })
+
+      this.$emit('success')
     }
   }
+}
 </script>

@@ -40,8 +40,7 @@ class TweetController extends Controller
 			'originalTweet.likes',
 			'originalTweet.retweets',
 			'originalTweet.media.baseMedia',
-		])
-			->find(explode(',', $request->ids));
+		])->find(explode(',', $request->ids));
 
 		return new TweetCollection($tweets);
 	}

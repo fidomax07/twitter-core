@@ -16,12 +16,17 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      tweet: {
-        required: true,
-        type: Object
-      }  
+import AppTweetReplyCompose from '../compose/AppTweetReplyCompose'
+
+export default {
+  components: {
+    AppTweetReplyCompose
+  },
+  props: {
+    tweet: {
+      required: true,
+      type: Object
     }
   }
+}
 </script>

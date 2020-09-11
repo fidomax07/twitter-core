@@ -11,7 +11,13 @@
 </template>
 
 <script>
+  import AppTweetUsername from '../../tweets/AppTweetUsername'
+
   export default {
+    components: {
+      AppTweetUsername
+    },
+
     props: {
       notification: {
         required: true,
