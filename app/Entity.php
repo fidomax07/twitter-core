@@ -35,9 +35,10 @@ use App\Tweets\Entities\EntityDatabaseCollection;
  */
 class Entity extends Model
 {
-    protected $guarded = [];
+	protected $guarded = [];
 
-    public function newCollection (array $models = []) {
-        return new EntityDatabaseCollection($models);
-    }
+	public function newCollection(array $models = [])
+	{
+		return new EntityDatabaseCollection($models);
+	}
 }

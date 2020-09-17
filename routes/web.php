@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Auth::routes();
@@ -24,5 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/notifications', 'Notifications\NotificationController@index');
 
 Route::get('/api/notifications', 'Api\Notifications\NotificationController@index');
+
+Route::get('tweets/{tweet}', 'Tweets\TweetController@show');
 
 Route::get('/timeline', 'Api\Timeline\TimelineController@index');

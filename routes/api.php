@@ -3,8 +3,10 @@
 Route::get('/timeline', 'Api\Timeline\TimelineController@index');
 
 Route::get('/tweets', 'Api\Tweets\TweetController@index');
+Route::get('/tweets/{tweet}', 'Api\Tweets\TweetController@show');
 Route::post('/tweets', 'Api\Tweets\TweetController@store');
 
+Route::get('/tweets/{tweet}/replies', 'Api\Tweets\TweetReplyController@show');
 Route::post('/tweets/{tweet}/replies', 'Api\Tweets\TweetReplyController@store');
 
 Route::post('/tweets/{tweet}/likes', 'Api\Tweets\TweetLikeController@store');

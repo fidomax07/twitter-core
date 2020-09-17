@@ -28,6 +28,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read \App\Tweets\Entities\EntityDatabaseCollection|\App\Entity[] $mentions
  * @property-read int|null $mentions_count
  * @property-read Tweet|null $originalTweet
+ * @property-read Tweet|null $parentTweet
  * @property-read \Illuminate\Database\Eloquent\Collection|Tweet[] $replies
  * @property-read int|null $replies_count
  * @property-read Tweet|null $retweetedTweet
@@ -74,6 +75,27 @@ class Tweet extends Model
 	public function scopeParent(Builder $builder)
 	{
 		return $builder->whereNull('parent_id');
+	}
+
+	/**
+	 * @return \Illuminate\Support\Collection
+	 */
+	public function parents()
+	{
+		$base = $this;
+		$parents = [];
+
+		while ($base->parentTweet) {
+			$parents[] = $base->parentTweet;
+			$base = $base->parentTweet;
+		}
+
+		return collect($parents);
+	}
+
+	public function parentTweet()
+	{
+		return $this->belongsTo(Tweet::class, 'parent_id');
 	}
 
 	/**

@@ -7,6 +7,7 @@ use App\TweetMedia;
 use App\Tweets\TweetType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TweetCollection;
 use App\Notifications\Tweets\TweetRepliedTo;
 use App\Events\Tweets\TweetRepliesWereUpdated;
 
@@ -14,9 +15,22 @@ class TweetReplyController extends Controller
 {
 	public function __construct()
 	{
-		$this->middleware(['auth:sanctum']);
+		$this->middleware(['auth:sanctum'])->only(['store']);
 	}
 
+	/**
+	 * @param Tweet $tweet
+	 * @return TweetCollection
+	 */
+	public function show(Tweet $tweet)
+	{
+		return new TweetCollection($tweet->replies);
+	}
+
+	/**
+	 * @param Tweet $tweet
+	 * @param Request $request
+	 */
 	public function store(Tweet $tweet, Request $request)
 	{
 		$reply = $request->user()

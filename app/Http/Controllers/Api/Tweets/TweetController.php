@@ -7,6 +7,7 @@ use App\TweetMedia;
 use App\Tweets\TweetType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TweetResource;
 use App\Events\Tweets\TweetWasCreated;
 use App\Http\Resources\TweetCollection;
 use App\Notifications\Tweets\TweetMentionedIn;
@@ -20,6 +21,13 @@ class TweetController extends Controller
 	public function __construct()
 	{
 		$this->middleware(['auth:sanctum'])->only(['store']);
+	}
+
+	public function show(Tweet $tweet)
+	{
+		return new TweetCollection(
+			collect([$tweet])->merge($tweet->parents())
+		);
 	}
 
 	/**
