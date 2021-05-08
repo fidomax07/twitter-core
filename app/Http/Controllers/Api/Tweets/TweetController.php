@@ -61,6 +61,7 @@ class TweetController extends Controller
 	 */
 	public function store(TweetStoreRequest $request)
 	{
+		/** @var Tweet $tweet */
 		$tweet = $request->user()->tweets()->create(
 			array_merge(
 				$request->only('body'),
