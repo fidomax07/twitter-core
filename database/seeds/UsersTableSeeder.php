@@ -14,17 +14,17 @@ class UsersTableSeeder extends Seeder
 		factory(\App\User::class)->createMany([
 			[
 				'name' => 'Fidan Ademi',
-				'username' => 'fidan',
+				'username' => 'fidansademi',
 				'email' => 'fidomax07@gmail.com'
 			],
 			[
 				'name' => 'Valon Shala',
-				'username' => 'valon',
+				'username' => 'valonnshala',
 				'email' => 'valonsh101@gmail.com'
 			],
 			[
 				'name' => 'Kujtim Halipi',
-				'username' => 'kujtim',
+				'username' => 'kujtimmhalipi',
 				'email' => 'kujtimm@gmail.com'
 			],
 		]);

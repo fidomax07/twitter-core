@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+use App\Tweet;
 use Illuminate\Database\Seeder;
 
 class TweetsTableSeeder extends Seeder
@@ -11,15 +13,14 @@ class TweetsTableSeeder extends Seeder
 	 */
 	public function run()
 	{
-		$userIds = App\User::pluck('id')->filter(function ($id) {
-			return $id != 1;
-		});
-
-		factory(App\Tweet::class, 100)->make()->each(function (App\Tweet $tweet, $index) use ($userIds) {
-			$tweet->fill([
-				'user_id' => 1,
-				'body' => 'Tweet ' . (($index + 1) < 10 ? '0' : '') . ($index + 1)
-			])->save();
-		});
+		$userIds = User::pluck('id');
+		factory(Tweet::class, 100)
+			->make()
+			->each(function ($tweet, $idx) use ($userIds) {
+				$tweet->fill([
+					'user_id' => $userIds->random(),
+					'body' => 'Tweet ' . (($idx + 1) < 10 ? '0' : '') . ($idx + 1)
+				])->save();
+			});
 	}
 }
